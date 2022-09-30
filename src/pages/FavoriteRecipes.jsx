@@ -11,7 +11,6 @@ function FavoriteRecipes() {
   const [favRecipes, setFavRecipes] = useState([]);
   const [filteredRecipe, setFilteredRecipe] = useState([]);
   const [message, setMessage] = useState('');
-  const TITLE_PAGE = 'Favorite Recipes';
 
   const copyLinkToShare = (id, type) => {
     copy(`http://localhost:3000/${type}s/${id}`);
@@ -57,7 +56,7 @@ function FavoriteRecipes() {
 
   return (
     <div>
-      <Header title={ TITLE_PAGE } />
+      <Header />
       <button
         type="button"
         data-testid="filter-by-all-btn"
@@ -89,7 +88,7 @@ function FavoriteRecipes() {
         <p>{message}</p>
       )}
       {(filteredRecipe.length === 0 ? favRecipes : filteredRecipe)
-        .map((recipe, index) => (
+        ?.map((recipe, index) => (
           <div key={ recipe.id }>
             <Link to={ `/${recipe.type}s/${recipe.id}` }>
               <img
