@@ -6,27 +6,6 @@ import blackHeartIcon from '../images/blackHeartIcon.svg';
 
 const copy = require('clipboard-copy');
 
-// const favoriteRecipes = [
-//   {
-//     id: '52771',
-//     type: 'meal',
-//     nationality: 'Italian',
-//     category: 'Vegetarian',
-//     alcoholicOrNot: '',
-//     name: 'Spicy Arrabiata Penne',
-//     image: 'https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg',
-//   },
-//   {
-//     id: '178319',
-//     type: 'drink',
-//     nationality: '',
-//     category: 'Cocktail',
-//     alcoholicOrNot: 'Alcoholic',
-//     name: 'Aquamarine',
-//     image: 'https://www.thecocktaildb.com/images/media/drink/zvsre31572902738.jpg',
-//   },
-// ];
-
 function FavoriteRecipes() {
   const [valueInput, setValueInput] = useState('');
   const [favRecipes, setFavRecipes] = useState([]);
@@ -41,7 +20,6 @@ function FavoriteRecipes() {
   };
 
   useEffect(() => {
-    // localStorage.setItem('favoriteRecipes', JSON.stringify(favoriteRecipes));
     const storage = JSON.parse(localStorage.getItem('favoriteRecipes'));
     setFavRecipes(storage);
   }, []);
@@ -62,7 +40,6 @@ function FavoriteRecipes() {
   const removeFavorites = (event) => {
     const storage = JSON.parse(localStorage.getItem('favoriteRecipes'));
     const filterStorage = storage.filter((store) => store.id !== event);
-    console.log(filterStorage);
     localStorage.setItem('favoriteRecipes', JSON.stringify(filterStorage));
     if (filterStorage.length !== 0) {
       setFilteredRecipe(filterStorage);
@@ -74,7 +51,6 @@ function FavoriteRecipes() {
 
   useEffect(() => {
     const filter = filterComparator(valueInput);
-    console.log(filter);
     setFilteredRecipe(filter);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [valueInput]);
