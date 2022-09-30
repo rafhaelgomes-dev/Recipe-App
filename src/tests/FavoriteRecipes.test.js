@@ -4,18 +4,6 @@ import { screen } from '@testing-library/react';
 import renderWithRouter from './renderWithRouter';
 import FavoritesRecipes from '../pages/FavoriteRecipes';
 
-// const recipes = [
-//   {
-//     id: '52771',
-//     type: 'meal',
-//     nationality: 'Italian',
-//     category: 'Vegetarian',
-//     alcoholicOrNot: '',
-//     name: 'Spicy Arrabiata Penne',
-//     image: 'https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg',
-//   },
-// ];
-
 describe.only('Testando o componente FavoritesRecipes', () => {
   test('Se os botões de "all", "Meals" e "Drinks" são renderizados na tela  ', () => {
     renderWithRouter(<FavoritesRecipes />);
