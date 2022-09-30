@@ -6,29 +6,52 @@ import blackHeartIcon from '../images/blackHeartIcon.svg';
 
 const copy = require('clipboard-copy');
 
+// const favoriteRecipes = [
+//   {
+//     id: '52771',
+//     type: 'meal',
+//     nationality: 'Italian',
+//     category: 'Vegetarian',
+//     alcoholicOrNot: '',
+//     name: 'Spicy Arrabiata Penne',
+//     image: 'https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg',
+//   },
+//   {
+//     id: '178319',
+//     type: 'drink',
+//     nationality: '',
+//     category: 'Cocktail',
+//     alcoholicOrNot: 'Alcoholic',
+//     name: 'Aquamarine',
+//     image: 'https://www.thecocktaildb.com/images/media/drink/zvsre31572902738.jpg',
+//   },
+// ];
+
 function FavoriteRecipes() {
   const [valueInput, setValueInput] = useState('');
   const [favRecipes, setFavRecipes] = useState([]);
   const [filteredRecipe, setFilteredRecipe] = useState([]);
+  const [message, setMessage] = useState('');
   const TITLE_PAGE = 'Favorite Recipes';
 
   const copyLinkToShare = (id, type) => {
-    copy(`localhost:3000/${type}/${id}`);
+    copy(`http://localhost:3000/${type}s/${id}`);
     const msg = 'Link copied!';
-    global.alert(msg);
+    setMessage(msg);
   };
 
   useEffect(() => {
+    // localStorage.setItem('favoriteRecipes', JSON.stringify(favoriteRecipes));
     const storage = JSON.parse(localStorage.getItem('favoriteRecipes'));
     setFavRecipes(storage);
   }, []);
 
   const filterComparator = (value) => {
     switch (value) {
-    case 'drinks':
+    case 'drink':
       return favRecipes.filter((recipe) => recipe.type === value);
 
-    case 'meals':
+    case 'meal':
       return favRecipes.filter((recipe) => recipe.type === value);
 
     default:
@@ -41,6 +64,12 @@ function FavoriteRecipes() {
     const filterStorage = storage.filter((store) => store.id !== event);
     console.log(filterStorage);
     localStorage.setItem('favoriteRecipes', JSON.stringify(filterStorage));
+    if (filterStorage.length !== 0) {
+      setFilteredRecipe(filterStorage);
+    } else {
+      setFilteredRecipe(filterStorage);
+      setFavRecipes(filterStorage);
+    }
   };
 
   useEffect(() => {
@@ -66,7 +95,7 @@ function FavoriteRecipes() {
         type="button"
         data-testid="filter-by-meal-btn"
         name="meal"
-        value="meals"
+        value="meal"
         onClick={ (e) => setValueInput(e.target.value) }
       >
         Meal
@@ -75,11 +104,14 @@ function FavoriteRecipes() {
         type="button"
         data-testid="filter-by-drink-btn"
         name="drink"
-        value="drinks"
+        value="drink"
         onClick={ (e) => setValueInput(e.target.value) }
       >
         Drinks
       </button>
+      {message && (
+        <p>{message}</p>
+      )}
       {(filteredRecipe.length === 0 ? favRecipes : filteredRecipe)
         .map((recipe, index) => (
           <div key={ recipe.id }>
