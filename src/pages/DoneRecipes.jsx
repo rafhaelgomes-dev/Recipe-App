@@ -29,7 +29,9 @@ function DoneRecipes() {
           <p
             data-testid={ `${i}-horizontal-top-text` }
           >
-            { `${e.nationality} - ${e.category}` }
+            { e.type === 'meal'
+              ? `${e.nationality} - ${e.category}`
+              : `${e.alcoholicOrNot} - ${e.category}` }
           </p>
           <p data-testid={ `${i}-horizontal-name` }>{e.name}</p>
           <p data-testid={ `${i}-horizontal-done-date` }>{e.doneDate}</p>
@@ -41,7 +43,7 @@ function DoneRecipes() {
             <img src={ shareIcon } alt="Icone compartilhar" />
           </button>
           {e.tags.map((e1) => (
-            <p key={ i } data-testid={ `${i}-${e1}-horizontal-tag` }>{e1}</p>
+            <p key={ e1 } data-testid={ `${i}-${e1}-horizontal-tag` }>{e1}</p>
           ))}
         </div>
       ))}
