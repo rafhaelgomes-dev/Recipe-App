@@ -1,4 +1,4 @@
-@media only screen and ( max-width: 360px ) {
+@media only screen and ( max-width:360px ) {
 
   .containerLogin {
     align-items: center;
@@ -38,7 +38,7 @@
   .containerSignup {
     display: flex;
   }
-  
+
   .containerSignup span {
     color: #004574;
     font-family: sans-serif;
