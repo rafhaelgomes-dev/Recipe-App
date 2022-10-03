@@ -1,8 +1,9 @@
 import React from 'react';
 import { screen, waitFor, act } from '@testing-library/react';
-import renderWithRouter from './renderWithRouter';
+
 import App from '../App';
-import doneRecipesMock from './helpers/mocks/doneRecipesMock';
+import renderWithRouter from './renderWithRouter';
+import { doneRecipes as doneRecipesMock } from './helpers/mockData';
 
 describe('testando Pagina doneRecipes', () => {
   test('Testa se as tags são renderizadas', async () => {

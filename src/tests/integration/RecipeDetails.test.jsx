@@ -23,7 +23,7 @@ async function waitPageLoad() {
   });
 }
 
-describe('<RecipeDetails />', () => {
+describe('pages/RecipeDetails.jsx', () => {
   beforeEach(() => {
     recipes.getDrinkById.mockResolvedValue(drinkMock);
     recipes.getMealById.mockResolvedValue(mealMock);
