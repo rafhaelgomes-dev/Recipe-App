@@ -1,4 +1,5 @@
-@media only screen and (max-width: 360px) {
+@media only screen and ( max-width: 360px ) {
+
   .containerLogin {
     align-items: center;
     display: flex;
@@ -18,10 +19,10 @@
   }
 
   .inputButtonLogin {
-    background-color: #F0BA06;
+    background-color: #f0ba06;
     border: none;
     border-radius: 8px;
-    color: rgb(255, 255, 255);
+    color: white;
     cursor: pointer;
     height: 35px;
     margin-top: 40px;
@@ -37,6 +38,7 @@
   .containerSignup {
     display: flex;
   }
+  
   .containerSignup span {
     color: #004574;
     font-family: sans-serif;
