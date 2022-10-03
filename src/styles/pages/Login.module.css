@@ -1,0 +1,54 @@
+@media only screen and ( max-width : 360px ) {
+
+  .containerLogin {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+  }
+
+  .inputsEmailSenha {
+    background-color: white;
+    border: none;
+    border-bottom: 1px solid rgb(165, 165, 165);
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 5px;
+    width: 80%;
+  }
+
+  .inputButtonLogin {
+    background-color: #f0ba06;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    height: 35px;
+    margin-top: 40px;
+    width: 80%;
+  }
+
+  .containerLogin p {
+    font-family: sans-serif;
+    font-size: 25px;
+    margin-bottom: 50px;
+  }
+
+  .containerSignup {
+    display: flex;
+  }
+
+  .containerSignup span {
+    color: #004574;
+    font-family: sans-serif;
+    font-size: 15px;
+    margin-right: 5px;
+  }
+
+  .linkSignUp {
+    color: #004574;
+    font-family: sans-serif;
+    font-size: 15px;
+  }
+}

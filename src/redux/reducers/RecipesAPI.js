@@ -14,6 +14,9 @@ function RecipesAPI(state = INITIAL_STATE, action) {
       ...state,
       DataRecipesMeals: action.data,
       DataCategoryMeals: action.categoryMeals,
+      DataRecipesDrinks: [],
+      DataCategoryDrinks: [],
+      Category: '',
       LoadingAPI: false,
     };
   case 'DRINKS_API':
@@ -21,6 +24,8 @@ function RecipesAPI(state = INITIAL_STATE, action) {
       ...state,
       DataRecipesDrinks: action.data,
       DataCategoryDrinks: action.categoryDrink,
+      DataRecipesMeals: [],
+      DataCategoryMeals: [],
       Category: '/drinks',
       LoadingAPI: false,
     };

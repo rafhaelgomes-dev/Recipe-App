@@ -11,10 +11,11 @@ import Footer from '../components/Footer';
 function Recipes({ match, dispatch, Loading }) {
   useEffect(() => {
     const { path } = match;
+    if (path === '/meals') {
+      dispatch(fetchApiMeals());
+    }
     if (path === '/drinks') {
       dispatch(fetchApiDrinks());
-    } else {
-      dispatch(fetchApiMeals());
     }
   }, [dispatch, match]);
 
