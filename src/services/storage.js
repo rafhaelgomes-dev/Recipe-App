@@ -1,19 +1,12 @@
+import { readStorage, writeStorage } from '../utils/localStorageUtils';
+
 const IN_PROGRESS_KEY = 'inProgressRecipes';
 const FAVORITE_RECIPES_KEY = 'favoriteRecipes';
-
-function readStorage(key, fallback = undefined) {
-  const data = window.localStorage.getItem(key);
-  return data ? JSON.parse(data) : fallback;
-}
-
-function writeStorage(key, value) {
-  window.localStorage.setItem(key, JSON.stringify(value));
-}
 
 function addInProgressRecipe(recipe) {
   const alreadyInProgress = readStorage(IN_PROGRESS_KEY, []);
 
-  writeStorage([...alreadyInProgress, recipe]);
+  writeStorage(IN_PROGRESS_KEY, [...alreadyInProgress, recipe]);
 }
 
 function addFavoriteRecipe(recipe) {
@@ -42,8 +35,8 @@ function getFavoriteRecipeById(id) {
 }
 
 export {
-  addInProgressRecipe,
   addFavoriteRecipe,
-  getInProgressRecipeById,
+  addInProgressRecipe,
   getFavoriteRecipeById,
+  getInProgressRecipeById,
 };
