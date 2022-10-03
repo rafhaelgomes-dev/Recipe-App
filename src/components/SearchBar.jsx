@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { fetchApiDrinks, fetchApiMeals } from '../redux/actions/actionSearchApi';
+import Styles from '../styles/components/Search.module.css';
 
 function SearchBar({ dispatch }) {
   const location = useLocation();
@@ -25,50 +26,63 @@ function SearchBar({ dispatch }) {
   }, [filter, searchFilter]);
 
   return (
-    <fieldset>
-      <label htmlFor="ingredient-search-radio">
-        <input
-          id="ingredient-search-radio"
-          data-testid="ingredient-search-radio"
-          type="radio"
-          name="search-radio"
-          value={ filter }
-          onClick={ () => setFilter('filter.php?i=') }
-        />
-        Ingrediente
-      </label>
-      <label htmlFor="name-search-radio">
-        <input
-          id="name-search-radio"
-          data-testid="name-search-radio"
-          type="radio"
-          name="search-radio"
-          value={ filter }
-          onClick={ () => setFilter('search.php?s=') }
-        />
-        Nome
-      </label>
-      <label htmlFor="first-letter-search-radio">
-        <input
-          id="first-letter-search-radio"
-          data-testid="first-letter-search-radio"
-          type="radio"
-          name="search-radio"
-          value={ filter }
-          onClick={ () => setFilter('search.php?f=') }
-        />
-        Primeira Letra
-      </label>
+    <fieldset className={ Styles.containerSearch }>
       <label htmlFor="search-input">
         <input
           data-testid="search-input"
+          className={ Styles.inputSearch }
           type="text"
           value={ searchFilter }
           onChange={ (e) => setSearchFilter(e.target.value) }
         />
       </label>
+      <div className={ Styles.containerInput }>
+        <label
+          htmlFor="ingredient-search-radio"
+          className={ Styles.inputRadioButton }
+        >
+          <input
+            id="ingredient-search-radio"
+            data-testid="ingredient-search-radio"
+            type="radio"
+            name="search-radio"
+            value={ filter }
+            onClick={ () => setFilter('filter.php?i=') }
+          />
+          Ingrediente
+        </label>
+        <label
+          htmlFor="name-search-radio"
+          className={ Styles.inputRadioButton }
+        >
+          <input
+            id="name-search-radio"
+            data-testid="name-search-radio"
+            type="radio"
+            name="search-radio"
+            value={ filter }
+            onClick={ () => setFilter('search.php?s=') }
+          />
+          Nome
+        </label>
+        <label
+          htmlFor="first-letter-search-radio"
+          className={ Styles.inputRadioButton }
+        >
+          <input
+            id="first-letter-search-radio"
+            data-testid="first-letter-search-radio"
+            type="radio"
+            name="search-radio"
+            value={ filter }
+            onClick={ () => setFilter('search.php?f=') }
+          />
+          Primeira Letra
+        </label>
+      </div>
       <button
         data-testid="exec-search-btn"
+        className={ Styles.buttonBuscar }
         type="button"
         onClick={ submitTheSearch }
       >

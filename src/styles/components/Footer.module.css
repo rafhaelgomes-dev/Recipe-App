@@ -1,4 +1,16 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .Content_footer {
+  align-items: center;
   bottom: 0;
+  background-color: #41197F;
+  justify-content: space-around;
+  display: flex;
+  height: 50px;
   position: fixed;
+  width: 100vw;
 }
