@@ -9,7 +9,6 @@ function DoneRecipes() {
   const TITLE_PAGE = 'Done Recipes';
   const [recipes, setRecipes] = useState([]);
   const [message, setMessage] = useState('');
-  
   useEffect(() => {
     const recipesGetStorage = JSON.parse(localStorage.getItem('doneRecipes'));
     if (recipesGetStorage === null) {
@@ -22,7 +21,6 @@ function DoneRecipes() {
       clearTimeout(messageClearTimeoutId);
     };
   }, []);
-
 
   const handleMeals = () => {
     const recipesGetStorage = JSON.parse(localStorage.getItem('doneRecipes'));
