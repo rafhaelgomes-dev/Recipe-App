@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import copy from 'clipboard-copy';
 import Header from '../components/Header';
 import shareIcon from '../images/shareIcon.svg';
+
+let messageClearTimeoutId;
+const ONE_SECOND = 1_000;
 
 const doneRecipes = [
   {
@@ -31,13 +35,19 @@ function DoneRecipes() {
   const TITLE_PAGE = 'Done Recipes';
   const [recipes, setRecipes] = useState([]);
 
+  const [message, setMessage] = useState('');
   useEffect(() => {
     localStorage.setItem('doneRecipes', JSON.stringify(doneRecipes));
     const recipesGetStorage = JSON.parse(localStorage.getItem('doneRecipes'));
     if (recipesGetStorage === null) {
       return;
     }
+
     setRecipes(recipesGetStorage);
+
+    return () => {
+      clearTimeout(messageClearTimeoutId);
+    };
   }, []);
 
   const handleMeals = () => {
@@ -56,9 +66,25 @@ function DoneRecipes() {
     const recipesGetStorage = JSON.parse(localStorage.getItem('doneRecipes'));
     setRecipes(recipesGetStorage);
   };
+  function handleShareRecipe(type, id) {
+    if (type === 'meal') {
+      copy(`${window.location.origin}/meals/${id}`);
+      setMessage('Link copied!');
+    } else {
+      copy(`${window.location.origin}/drinks/${id}`);
+      setMessage('Link copied!');
+    }
+
+    if (messageClearTimeoutId) clearTimeout(messageClearTimeoutId);
+
+    messageClearTimeoutId = setTimeout(() => {
+      setMessage('');
+    }, ONE_SECOND);
+  }
 
   return (
     <div>
+      {message && <span>{message}</span>}
       <Header title={ TITLE_PAGE } />
       <button
         type="button"
@@ -101,6 +127,7 @@ function DoneRecipes() {
             src={ shareIcon }
             type="button"
             data-testid={ `${i}-horizontal-share-btn` }
+            onClick={ () => handleShareRecipe(e.type, e.id) }
           >
             <img src={ shareIcon } alt="Icone compartilhar" />
           </button>

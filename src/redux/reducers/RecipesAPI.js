@@ -3,6 +3,7 @@ const INITIAL_STATE = {
   DataRecipesDrinks: [],
   DataCategoryDrinks: [],
   DataCategoryMeals: [],
+  URLDetailsRecipe: '',
   Category: '',
   LoadingAPI: true,
 };
