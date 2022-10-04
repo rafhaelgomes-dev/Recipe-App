@@ -5,12 +5,11 @@ import shareIcon from '../images/shareIcon.svg';
 
 let messageClearTimeoutId;
 const ONE_SECOND = 1_000;
-
 function DoneRecipes() {
   const TITLE_PAGE = 'Done Recipes';
   const [recipes, setRecipes] = useState([]);
   const [message, setMessage] = useState('');
-
+  
   useEffect(() => {
     const recipesGetStorage = JSON.parse(localStorage.getItem('doneRecipes'));
     if (recipesGetStorage === null) {
@@ -23,6 +22,7 @@ function DoneRecipes() {
       clearTimeout(messageClearTimeoutId);
     };
   }, []);
+
 
   const handleMeals = () => {
     const recipesGetStorage = JSON.parse(localStorage.getItem('doneRecipes'));
@@ -40,6 +40,7 @@ function DoneRecipes() {
     const recipesGetStorage = JSON.parse(localStorage.getItem('doneRecipes'));
     setRecipes(recipesGetStorage);
   };
+
   function handleShareRecipe(type, id) {
     if (type === 'meal') {
       copy(`${window.location.origin}/meals/${id}`);
