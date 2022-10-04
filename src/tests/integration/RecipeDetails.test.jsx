@@ -23,12 +23,12 @@ async function waitPageLoad() {
   });
 }
 
-describe('<RecipeDetails />', () => {
+describe('pages/RecipeDetails.jsx', () => {
   beforeEach(() => {
     recipes.getDrinkById.mockResolvedValue(drinkMock);
     recipes.getMealById.mockResolvedValue(mealMock);
-    recipes.getDrinks.mockResolvedValue([]);
-    recipes.getMeals.mockResolvedValue([]);
+    recipes.getDrinks.mockResolvedValue([drinkMock]);
+    recipes.getMeals.mockResolvedValue([mealMock]);
   });
 
   test('should render loading when page renders', async () => {
