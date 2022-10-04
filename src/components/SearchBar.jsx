@@ -39,10 +39,11 @@ function SearchBar({ dispatch }) {
       <div className={ Styles.containerInput }>
         <label
           htmlFor="ingredient-search-radio"
-          className={ Styles.inputRadioButton }
+          className={ Styles.LabelRadioButton }
         >
           <input
             id="ingredient-search-radio"
+            className={ Styles.inputRadioButton }
             data-testid="ingredient-search-radio"
             type="radio"
             name="search-radio"
@@ -53,11 +54,12 @@ function SearchBar({ dispatch }) {
         </label>
         <label
           htmlFor="name-search-radio"
-          className={ Styles.inputRadioButton }
+          className={ Styles.LabelRadioButton }
         >
           <input
             id="name-search-radio"
             data-testid="name-search-radio"
+            className={ Styles.inputRadioButton }
             type="radio"
             name="search-radio"
             value={ filter }
@@ -67,11 +69,11 @@ function SearchBar({ dispatch }) {
         </label>
         <label
           htmlFor="first-letter-search-radio"
-          className={ Styles.inputRadioButton }
         >
           <input
             id="first-letter-search-radio"
             data-testid="first-letter-search-radio"
+            className={ Styles.inputRadioButton }
             type="radio"
             name="search-radio"
             value={ filter }

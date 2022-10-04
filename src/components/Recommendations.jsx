@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
+import styles from '../styles/pages/RecipeDetails.module.css';
 
 import { RecipeType } from '../utils/commonPropTypes';
 
 function Recommendations({ recommendations }) {
   return (
-    <ul style={ { display: 'flex', maxWidth: '100vw', overflowX: 'auto' } }>
+    <ul className={ styles.ulRecomendados }>
       {recommendations.map((recommendation, index) => (
         <li
           key={ recommendation.id }
-          style={ { maxWidth: 180 } }
           data-testid={ `${index}-recommendation-card` }
         >
           <img src={ recommendation.thumbnailUrl } alt={ recommendation.title } />

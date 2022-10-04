@@ -49,16 +49,16 @@ function Header() {
       showTitle = 'Profile';
     }
     return (
-      <header>
+      <header className={ Styles.containerHeader }>
         <h1 data-testid="page-title">{ showTitle }</h1>
         <button
           data-testid="profile-top-btn"
+          className={ Styles.buttonHeaderPerfil }
           type="button"
           src={ ProfileIcon }
           onClick={ goToProfile }
         >
-          <img src={ ProfileIcon } alt="Profile Icon" />
-          Perfil
+          <img src={ iconePerfil } alt="Profile Icon" />
         </button>
       </header>
     );

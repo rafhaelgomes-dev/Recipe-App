@@ -1,0 +1,52 @@
+.containerPerfilAndEmail {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.TextProfile {
+  color: #41197F;
+  font-weight: bold;
+  font-family: sans-serif;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.textEmail {
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.containerButton {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buttonDoneRecipes {
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.textDoneRecipes {
+  margin-left: 20px;
+}
+
+.buttonDoneFavorite {
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
