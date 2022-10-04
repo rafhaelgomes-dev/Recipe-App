@@ -40,7 +40,6 @@ function DoneRecipes() {
     const recipesGetStorage = JSON.parse(localStorage.getItem('doneRecipes'));
     setRecipes(recipesGetStorage);
   };
-
   function handleShareRecipe(type, id) {
     if (type === 'meal') {
       copy(`${window.location.origin}/meals/${id}`);
