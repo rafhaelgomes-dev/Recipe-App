@@ -6,38 +6,12 @@ import shareIcon from '../images/shareIcon.svg';
 let messageClearTimeoutId;
 const ONE_SECOND = 1_000;
 
-const doneRecipes = [
-  {
-    id: '52771',
-    type: 'meal',
-    nationality: 'Italian',
-    category: 'Vegetarian',
-    alcoholicOrNot: '',
-    name: 'Spicy Arrabiata Penne',
-    image: 'https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg',
-    doneDate: '23/06/2020',
-    tags: ['Pasta', 'Curry'],
-  },
-  {
-    id: '178319',
-    type: 'drink',
-    nationality: '',
-    category: 'Cocktail',
-    alcoholicOrNot: 'Alcoholic',
-    name: 'Aquamarine',
-    image: 'https://www.thecocktaildb.com/images/media/drink/zvsre31572902738.jpg',
-    doneDate: '23/06/2020',
-    tags: [],
-  },
-];
-
 function DoneRecipes() {
   const TITLE_PAGE = 'Done Recipes';
   const [recipes, setRecipes] = useState([]);
-
   const [message, setMessage] = useState('');
+
   useEffect(() => {
-    localStorage.setItem('doneRecipes', JSON.stringify(doneRecipes));
     const recipesGetStorage = JSON.parse(localStorage.getItem('doneRecipes'));
     if (recipesGetStorage === null) {
       return;
@@ -66,6 +40,7 @@ function DoneRecipes() {
     const recipesGetStorage = JSON.parse(localStorage.getItem('doneRecipes'));
     setRecipes(recipesGetStorage);
   };
+
   function handleShareRecipe(type, id) {
     if (type === 'meal') {
       copy(`${window.location.origin}/meals/${id}`);
