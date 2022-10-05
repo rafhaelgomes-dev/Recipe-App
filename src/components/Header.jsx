@@ -27,10 +27,10 @@ function Header() {
   const path = location.pathname;
   let showTitle = '';
 
-  if (path === '/drinks') {
+  if (path === '/drinks' || path === '/drinks/') {
     showTitle = 'Drinks';
   }
-  if (path === '/meals') {
+  if (path === '/meals' || path === '/meals/') {
     showTitle = 'Meals';
   }
 
