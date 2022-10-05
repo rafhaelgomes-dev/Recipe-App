@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import Styles from '../styles/pages/Login.module.css';
+import logoRecipesApp from '../Assets/logoRecipesApp.svg';
 
 const NUMBER_SEVEN = 7;
 
@@ -54,6 +55,7 @@ function Login() {
 
   return (
     <div className={ Styles.containerLogin }>
+      <img src={ logoRecipesApp } alt="Logo Recipe Apps" />
       <p>Login</p>
       <input
         type="text"
