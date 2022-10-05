@@ -52,7 +52,7 @@ function DoneRecipes() {
     if (messageClearTimeoutId) clearTimeout(messageClearTimeoutId);
 
     messageClearTimeoutId = setTimeout(() => {
-      setMessage('');
+      setMessage(' ');
     }, ONE_SECOND);
   }
 
