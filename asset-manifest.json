@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/Recipe-App/static/css/main.06eb59bb.css",
+    "main.js": "/Recipe-App/static/js/main.44676664.js",
+    "static/media/shareIcon.svg": "/Recipe-App/static/media/shareIcon.87def1bd1dff9af9263f046c3b9bd31a.svg",
+    "static/media/profileIcon.svg": "/Recipe-App/static/media/profileIcon.44eb3608f431845fe2fc2d2a23d758ae.svg",
+    "static/media/whiteHeartIcon.svg": "/Recipe-App/static/media/whiteHeartIcon.2b822118952dc5140129c6349fcd0472.svg",
+    "static/media/beef.svg": "/Recipe-App/static/media/beef.8b377bf08ed5184e653888bb743ff8e4.svg",
+    "static/media/breakfast.svg": "/Recipe-App/static/media/breakfast.a48d70ec26d15fb1c0dcfd5d6b363161.svg",
+    "static/media/searchIcon.svg": "/Recipe-App/static/media/searchIcon.7353564d025de989f86f66ecb0202a04.svg",
+    "static/media/dessert.svg": "/Recipe-App/static/media/dessert.bc161c157e7bef60ea1780f11176d79b.svg",
+    "static/media/drink.svg": "/Recipe-App/static/media/drink.9f8ac9b1b308c858b41dd488d2d4c0b1.svg",
+    "static/media/blackHeartIcon.svg": "/Recipe-App/static/media/blackHeartIcon.083cb006913d197c95857ebfa2161db7.svg",
+    "static/media/other.svg": "/Recipe-App/static/media/other.01d1b2f9dc826c435b0fcd261ba694b9.svg",
+    "static/media/cocoa.svg": "/Recipe-App/static/media/cocoa.0abd2475264cb9f370fd4b3342f425ae.svg",
+    "static/media/cocktail.svg": "/Recipe-App/static/media/cocktail.d2ad1f863435266cb6d90caa2d05b237.svg",
+    "static/media/foods.svg": "/Recipe-App/static/media/foods.679ebaf764d1c6349fe73cfa3baa5b68.svg",
+    "static/media/chicken.svg": "/Recipe-App/static/media/chicken.664f169baca23bf113d5b2914eb96c00.svg",
+    "static/media/lamb.svg": "/Recipe-App/static/media/lamb.e1d181a7a3d6d02b86a0bac72eb2284e.svg",
+    "static/media/shake.svg": "/Recipe-App/static/media/shake.339c82f29a739fb0f53725e925ec5bf3.svg",
+    "static/media/AllMeals.svg": "/Recipe-App/static/media/AllMeals.1fe51168ea018ffe706d3955fd280907.svg",
+    "static/media/drinks.svg": "/Recipe-App/static/media/drinks.cb766d046dcc336eb720f8d5fe2cdf2c.svg",
+    "static/media/iconePrato.svg": "/Recipe-App/static/media/iconePrato.9271ab8a815378fd930c928b06082151.svg",
+    "static/media/AllFavorite.svg": "/Recipe-App/static/media/AllFavorite.9ec7d1eb3c8941412224bd6c5f7195c0.svg",
+    "static/media/AllDrinks.svg": "/Recipe-App/static/media/AllDrinks.5dd7f83942f118ab7f9b44599bcc72cc.svg",
+    "static/media/IconFavorite.svg": "/Recipe-App/static/media/IconFavorite.dd98ca135a8073d110b41efcc357fec6.svg",
+    "static/media/Perfil.svg": "/Recipe-App/static/media/Perfil.484550356ae39a06ca657c9e733a2b76.svg",
+    "static/media/iconePerfil.svg": "/Recipe-App/static/media/iconePerfil.2513db92785ecef3caba85c3b1578f08.svg",
+    "static/media/iconePesquiar.svg": "/Recipe-App/static/media/iconePesquiar.224a1840f7d2f848c0e45ae8f41563d7.svg",
+    "index.html": "/Recipe-App/index.html",
+    "static/media/imgDoneRecipes.svg": "/Recipe-App/static/media/imgDoneRecipes.8cdbad3418aa3d5259ed330dab0c2727.svg",
+    "static/media/iconeBebida.svg": "/Recipe-App/static/media/iconeBebida.2e7677a75b8ff5ee8733ac788566684e.svg",
+    "static/media/IconeLogout.svg": "/Recipe-App/static/media/IconeLogout.d60dd1a3860f60736646f09df4cff086.svg",
+    "main.06eb59bb.css.map": "/Recipe-App/static/css/main.06eb59bb.css.map",
+    "main.44676664.js.map": "/Recipe-App/static/js/main.44676664.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.06eb59bb.css",
+    "static/js/main.44676664.js"
+  ]
+}
