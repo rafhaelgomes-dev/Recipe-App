@@ -89,12 +89,14 @@ function RecipeDetails() {
   return (
     <div className={ styles.containerRecipeDetails }>
       {message && <span>{message}</span>}
-      <img
-        src={ recipe.thumbnailUrl }
-        alt={ recipe.title }
-        style={ { width: '100%' } }
-        data-testid="recipe-photo"
-      />
+      <div className={ styles.containerImg }>
+        <img
+          src={ recipe.thumbnailUrl }
+          alt={ recipe.title }
+          data-testid="recipe-photo"
+          className={ styles.imgRecipe }
+        />
+      </div>
       <div className={ styles.containerButtons }>
         <Link to="/">
           <FiHome />
@@ -121,8 +123,9 @@ function RecipeDetails() {
         </button>
       </div>
 
-      <h1 data-testid="recipe-title">{recipe.title}</h1>
+      <h1 className={ styles.h1 } data-testid="recipe-title">{recipe.title}</h1>
       <div className={ styles.containerIngredientes }>
+        <h2>Ingredientes</h2>
         <p data-testid="recipe-category">
           {recipe.categories}
           {isDrink && (
@@ -135,11 +138,13 @@ function RecipeDetails() {
         <RecipeIngredients ingredients={ recipe.ingredients } />
       </div>
       <div className={ styles.containerIntroctions }>
+        <h2>Instruções</h2>
         <p data-testid="instructions">{recipe.instructions}</p>
         {recipe.videoUrl && <RecipeVideo videoCode={ recipe.videoCode } />}
       </div>
-
-      <Recommendations recommendations={ recommendations } />
+      <div className={ styles.ContainerRecomendados }>
+        <Recommendations recommendations={ recommendations } />
+      </div>
       <button
         onClick={ () => history.push(`${pathname}/in-progress`) }
         type="button"

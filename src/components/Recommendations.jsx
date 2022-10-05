@@ -5,9 +5,10 @@ import { RecipeType } from '../utils/commonPropTypes';
 
 function Recommendations({ recommendations }) {
   return (
-    <ul className={ styles.ulRecomendados }>
+    <>
       {recommendations.map((recommendation, index) => (
-        <li
+        <div
+          className={ styles.divCardRecomendado }
           key={ recommendation.id }
           data-testid={ `${index}-recommendation-card` }
         >
@@ -15,9 +16,9 @@ function Recommendations({ recommendations }) {
           <span data-testid={ `${index}-recommendation-title` }>
             {recommendation.title}
           </span>
-        </li>
+        </div>
       ))}
-    </ul>
+    </>
   );
 }
 
