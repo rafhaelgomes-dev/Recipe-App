@@ -14,11 +14,11 @@
   width: 50px;
 }
 
-@keyframes is-rotating {
+/* @keyframes is-rotating {
 
   to
 
   {
     transform: rotate(1turn);
   }
-}
+} */
