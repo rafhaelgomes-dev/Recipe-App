@@ -1,0 +1,51 @@
+* {
+  font-family: sans-serif;
+}
+
+.containerSearch {
+  background-color: #41197f;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  text-align: center;
+  width: 95%;
+}
+
+.inputSearch {
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+}
+
+.inputRadioButton {
+  accent-color: #fcc436;
+  margin-right: 5px;
+}
+
+.LabelRadioButton {
+  margin-right: 10px;
+}
+
+.containerInput {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.buttonBuscar {
+  background-color: #fcc436;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  height: 25px;
+  margin: auto;
+  width: 270px;
+}

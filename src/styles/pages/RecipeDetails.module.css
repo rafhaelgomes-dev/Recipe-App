@@ -1,7 +1,80 @@
-.startRecipeButton {
-  background: red;
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  right: 0;
+@media only screen and ( max-width : 360px ) {
+
+  .containerRecipeDetails {
+    margin-bottom: 100px;
+  }
+
+  .startRecipeButton {
+    background-color: #fcc436;
+    border: none;
+    border-radius: 8px;
+    bottom: 0;
+    color: white;
+    height: 40px;
+    left: 0;
+    margin: auto;
+    margin-bottom: 10px;
+    position: fixed;
+    right: 0;
+    width: 98%;
+  }
+
+  .buttonFavorite {
+    background: none;
+    border: none;
+  }
+
+  .containerButtons {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+
+  .buttonShare {
+    background: none;
+    border: none;
+  }
+
+  .containerIngredientes {
+    border: 1px solid black;
+    border-radius: 8px;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 98%;
+  }
+
+  .containerIngredientes ol {
+    list-style: none;
+  }
+
+  .ulRecomendados {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .ulRecomendados li {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+  }
+
+  .ulRecomendados img {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 300px;
+  }
+
+  .containerIntroctions {
+    border: 1px solid black;
+    border-radius: 8px;
+    margin: auto;
+    padding: 10px;
+    width: 98%;
+  }
 }

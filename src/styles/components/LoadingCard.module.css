@@ -1,13 +1,14 @@
-.LoadingContainer {
+.containerLoading {
   align-items: center;
   display: flex;
   height: 100vh;
   justify-content: center;
 }
 
-.LoadingContainer p {
-  color: orange;
-  font-family: sans-serif;
-  font-size: 25px;
-  font-weight: 700;
+.cloader {
+  border: 6px solid #e5e5e5;
+  border-radius: 50%;
+  border-top-color: #fcc436;
+  height: 50px;
+  width: 50px;
 }

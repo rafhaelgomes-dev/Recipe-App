@@ -1,8 +1,8 @@
 import copy from 'clipboard-copy';
 import React, { useEffect, useState, useMemo } from 'react';
 import { FiHome, FiShare } from 'react-icons/fi';
-import { Link, NavLink, useLocation, useRouteMatch } from 'react-router-dom';
-
+import { Link, useLocation, useRouteMatch } from 'react-router-dom';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import styles from '../styles/pages/RecipeDetails.module.css';
 import filledHeartIcon from '../images/blackHeartIcon.svg';
 import outlineHeartIcon from '../images/whiteHeartIcon.svg';
@@ -25,6 +25,7 @@ function RecipeDetails() {
   const { pathname } = useLocation();
   const { params } = useRouteMatch();
   const { id } = params;
+  const history = useHistory();
 
   const [recipe, setRecipe] = useState(null);
   const [recommendations, setRecommendations] = useState([]);
@@ -78,24 +79,32 @@ function RecipeDetails() {
   if (!recipe) return <LoadingCard />;
 
   return (
-    <div>
-      <div>
-        {message && <span>{message}</span>}
-        <img
-          src={ recipe.thumbnailUrl }
-          alt={ recipe.title }
-          style={ { width: '100%' } }
-          data-testid="recipe-photo"
-        />
-
+    <div className={ styles.containerRecipeDetails }>
+      {message && <span>{message}</span>}
+      <img
+        src={ recipe.thumbnailUrl }
+        alt={ recipe.title }
+        style={ { width: '100%' } }
+        data-testid="recipe-photo"
+      />
+      <div className={ styles.containerButtons }>
         <Link to="/">
           <FiHome />
         </Link>
 
-        <button type="button" onClick={ handleShareRecipe } data-testid="share-btn">
+        <button
+          type="button"
+          onClick={ handleShareRecipe }
+          className={ styles.buttonShare }
+          data-testid="share-btn"
+        >
           <FiShare />
         </button>
-        <button type="button" onClick={ handleFavoriteRecipe }>
+        <button
+          type="button"
+          onClick={ handleFavoriteRecipe }
+          className={ styles.buttonFavorite }
+        >
           <img
             src={ isFavorite ? filledHeartIcon : outlineHeartIcon }
             alt=""
@@ -105,31 +114,32 @@ function RecipeDetails() {
       </div>
 
       <h1 data-testid="recipe-title">{recipe.title}</h1>
-      <p data-testid="recipe-category">
-        {recipe.categories}
-        {isDrink && (
-          <>
-            {' - '}
-            {recipe.alcoholic}
-          </>
-        )}
-      </p>
-
-      <RecipeIngredients ingredients={ recipe.ingredients } />
-
-      <p data-testid="instructions">{recipe.instructions}</p>
-
-      {recipe.videoUrl && <RecipeVideo videoCode={ recipe.videoCode } />}
+      <div className={ styles.containerIngredientes }>
+        <p data-testid="recipe-category">
+          {recipe.categories}
+          {isDrink && (
+            <>
+              {' - '}
+              {recipe.alcoholic}
+            </>
+          )}
+        </p>
+        <RecipeIngredients ingredients={ recipe.ingredients } />
+      </div>
+      <div className={ styles.containerIntroctions }>
+        <p data-testid="instructions">{recipe.instructions}</p>
+        {recipe.videoUrl && <RecipeVideo videoCode={ recipe.videoCode } />}
+      </div>
 
       <Recommendations recommendations={ recommendations } />
-
-      <NavLink
-        to={ `${pathname}/in-progress` }
+      <button
+        onClick={ () => history.push(`${pathname}/in-progress`) }
+        type="button"
         className={ styles.startRecipeButton }
         data-testid="start-recipe-btn"
       >
         {isInProgress ? 'Continue Recipe' : 'Start Recipe'}
-      </NavLink>
+      </button>
     </div>
   );
 }

@@ -2,18 +2,25 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 80px;
+  margin-top: 20px;
 }
 
 .Card_Container {
   align-items: center;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 4px 0 rgb(0 0 0 / 40%);
   display: flex;
-  flex-flow: column wrap;
-  margin: 2px;
-  width: 110px;
+  flex-direction: column;
+  font-family: sans-serif;
+  justify-content: space-between;
+  margin: 10px;
+  width: 145px;
 }
 
 .Card_Container img {
-  margin: 10px;
-  width: 80px;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 15px;
+  width: 145px;
 }
-

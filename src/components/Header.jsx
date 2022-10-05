@@ -3,6 +3,9 @@ import { useLocation, useHistory } from 'react-router-dom';
 import ProfileIcon from '../images/profileIcon.svg';
 import SearchIcon from '../images/searchIcon.svg';
 import SearchBar from './SearchBar';
+import Styles from '../styles/components/Header.module.css';
+import iconePesquiar from '../Assets/iconePesquiar.svg';
+import iconePerfil from '../Assets/iconePerfil.svg';
 // commit
 
 function Header() {
@@ -46,46 +49,52 @@ function Header() {
       showTitle = 'Profile';
     }
     return (
-      <header>
+      <header className={ Styles.containerHeader }>
         <h1 data-testid="page-title">{ showTitle }</h1>
         <button
           data-testid="profile-top-btn"
+          className={ Styles.buttonHeaderPerfil }
           type="button"
           src={ ProfileIcon }
           onClick={ goToProfile }
         >
-          <img src={ ProfileIcon } alt="Profile Icon" />
-          Perfil
+          <img src={ iconePerfil } alt="Profile Icon" />
         </button>
       </header>
     );
   }
 
   return (
-    <header>
-      <h1 data-testid="page-title">{ showTitle}</h1>
-      <button
-        data-testid="profile-top-btn"
-        type="button"
-        src={ ProfileIcon }
-        onClick={ goToProfile }
-      >
-        <img src={ ProfileIcon } alt="Profile Icon" />
-        Perfil
-      </button>
-      <button
-        data-testid="search-top-btn"
-        type="button"
-        src={ SearchIcon }
-        onClick={ showTheSearchBar }
-      >
-        <img src={ SearchIcon } alt="Search Icon" />
-        Search
-      </button>
-      { showSearchBar && (
-        <SearchBar />
-      ) }
-    </header>
+    <div className={ Styles.header }>
+      <header className={ Styles.containerHeader }>
+        <h1 data-testid="page-title">{ showTitle}</h1>
+        <section className={ Styles.buttonContainerHeader }>
+          <button
+            data-testid="profile-top-btn"
+            className={ Styles.buttonHeaderPerfil }
+            type="button"
+            src={ ProfileIcon }
+            onClick={ goToProfile }
+          >
+            <img src={ iconePerfil } alt="Profile Icon" />
+          </button>
+          <button
+            data-testid="search-top-btn"
+            className={ Styles.buttonHeaderPesquisa }
+            type="button"
+            src={ SearchIcon }
+            onClick={ showTheSearchBar }
+          >
+            <img src={ iconePesquiar } alt="Search Icon" />
+          </button>
+        </section>
+      </header>
+      <div className={ Styles.containerPesquisa }>
+        { showSearchBar && (
+          <SearchBar className={ Styles.containerSearch } />
+        ) }
+      </div>
+    </div>
   );
 }
 

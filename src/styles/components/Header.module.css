@@ -1,11 +1,37 @@
-/* .profile_top_icon {
-  background: url('../images/profileIcon.svg') no-repeat left center;
-  height: 50px;
-  width: 100px;
+.containerHeader {
+  align-items: center;
+  background-color: #fcdc36;
+  color: #41197f;
+  display: flex;
+  font-family: sans-serif;
+  font-size: 14px;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  padding: 10px;
 }
 
-.search_top_icon {
-  background: url('../images/searchIcon.svg') no-repeat left center;
-  height: 50px;
-  width: 100px;
-} */
+.buttonHeaderPerfil {
+  background: none;
+  border: none;
+  margin-right: 20px;
+}
+
+.buttonHeaderPesquisa {
+  background: none;
+  border: none;
+}
+
+.buttonContainerHeader {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.containerPesquisa {
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  margin-bottom: 20px;
+}
