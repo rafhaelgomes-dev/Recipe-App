@@ -71,8 +71,16 @@ function RecipeDetails() {
   }
 
   function handleFavoriteRecipe() {
-    addFavoriteRecipe(recipe);
-    setFavorite((current) => !current);
+    const storageFavoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
+    const verifyId = storageFavoriteRecipes.some((e) => e.id === recipe.id);
+    if (verifyId) {
+      const filterRemoveId = storageFavoriteRecipes.filter((e) => e.id !== recipe.id);
+      setFavorite((current) => !current);
+      localStorage.setItem('favoriteRecipes', JSON.stringify(filterRemoveId));
+    } else {
+      addFavoriteRecipe(recipe);
+      setFavorite((current) => !current);
+    }
   }
 
   if (!recipe) return <LoadingCard />;

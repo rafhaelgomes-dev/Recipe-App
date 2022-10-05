@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useLocation, useRouteMatch } from 'react-router-dom';
 import LoadingCard from '../components/LoadingCard';
 import { getDrinkById, getMealById } from '../services/recipes';
@@ -17,10 +18,11 @@ function RecipeInProgress() {
   const [recipe, setRecipe] = useState(null);
   const [isCheckd, setIsChecked] = useState(undefined);
   const [alert, setAlert] = useState('');
-  /*   const [favoriteRecipes, setFavoriteRecipes] = useState(false); */
+  const [finishedRecipe, setFinishedRecipe] = useState(true);
 
   const { pathname } = useLocation();
   const { params } = useRouteMatch();
+  const history = useHistory();
   const { id } = params;
 
   const [isFavorite, setFavorite] = useState(() => !!getFavoriteRecipeById(id));
@@ -91,7 +93,6 @@ function RecipeInProgress() {
   };
 
   const ingredientNotChecked = (index) => {
-    const storage2 = JSON.parse(localStorage.getItem('inProgressRecipes'));
     const storage = JSON.parse(localStorage.getItem('inProgressRecipes'));
     if (isDrink) {
       const bebidas = storage2.bebidas[recipe.id];
@@ -104,6 +105,7 @@ function RecipeInProgress() {
         },
       }));
     } else {
+      const storage2 = JSON.parse(localStorage.getItem('inProgressRecipes'));
       const comidas = storage2.comidas[recipe.id];
       const filterComidas = comidas.filter((e2) => e2 !== index);
       localStorage.setItem('inProgressRecipes', JSON.stringify({
@@ -163,17 +165,32 @@ function RecipeInProgress() {
   }, [recipe]);
 
   useEffect(() => {
+    if (isCheckd === undefined) {
+      return;
+    }
+    const finish = isCheckd.every((e) => e === true);
+    setFinishedRecipe(!finish);
+  }, [isCheckd]);
+
+  useEffect(() => {
     if (isDrink) getDrinkById(id).then(setRecipe);
     else if (isMeal) getMealById(id).then(setRecipe);
   }, [id, isDrink, isMeal]);
+
+  const handleFinishedRecipe = () => {
+    let getStorage = JSON.parse(localStorage.getItem('doneRecipes'));
+    if (getStorage === null) {
+      getStorage = [];
+    }
+    localStorage.setItem('doneRecipes', JSON.stringify([...getStorage, recipe]));
+    history.push('/done-recipes');
+  };
 
   if (!recipe) return <LoadingCard />;
 
   const { title, categories, thumbnailUrl, instructions, ingredients } = recipe;
   return (
     <div>
-      <pre>{JSON.stringify(recipe, null, 2)}</pre>
-
       <img src={ thumbnailUrl } alt="" data-testid="recipe-photo" />
       <h1 data-testid="recipe-title">
         {title}
@@ -202,11 +219,6 @@ function RecipeInProgress() {
         {instructions}
 
       </p>
-      <button type="button" data-testid="finish-recipe-btn">
-        Finalizar Receita
-
-      </button>
-
       <ul>
         {ingredients.map((ingredient, index) => (
           <li key={ index }>
@@ -227,6 +239,14 @@ function RecipeInProgress() {
           </li>
         ))}
       </ul>
+      <button
+        type="button"
+        data-testid="finish-recipe-btn"
+        disabled={ finishedRecipe }
+        onClick={ handleFinishedRecipe }
+      >
+        Finalizar Receita
+      </button>
       { alert && <p>{alert}</p> }
     </div>
   );
