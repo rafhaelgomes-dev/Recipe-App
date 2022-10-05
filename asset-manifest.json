@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.css": "/Recipe-App/static/css/main.06eb59bb.css",
-    "main.js": "/Recipe-App/static/js/main.b94ef760.js",
+    "main.css": "/Recipe-App/static/css/main.c8956686.css",
+    "main.js": "/Recipe-App/static/js/main.86424169.js",
     "static/media/shareIcon.svg": "/Recipe-App/static/media/shareIcon.87def1bd1dff9af9263f046c3b9bd31a.svg",
     "static/media/profileIcon.svg": "/Recipe-App/static/media/profileIcon.44eb3608f431845fe2fc2d2a23d758ae.svg",
     "static/media/whiteHeartIcon.svg": "/Recipe-App/static/media/whiteHeartIcon.2b822118952dc5140129c6349fcd0472.svg",
+    "static/media/logoRecipesApp.svg": "/Recipe-App/static/media/logoRecipesApp.41bab340aaa08a53a4f3a759f18b56aa.svg",
     "static/media/beef.svg": "/Recipe-App/static/media/beef.8b377bf08ed5184e653888bb743ff8e4.svg",
     "static/media/breakfast.svg": "/Recipe-App/static/media/breakfast.a48d70ec26d15fb1c0dcfd5d6b363161.svg",
     "static/media/searchIcon.svg": "/Recipe-App/static/media/searchIcon.7353564d025de989f86f66ecb0202a04.svg",
@@ -31,11 +32,11 @@
     "static/media/imgDoneRecipes.svg": "/Recipe-App/static/media/imgDoneRecipes.8cdbad3418aa3d5259ed330dab0c2727.svg",
     "static/media/iconeBebida.svg": "/Recipe-App/static/media/iconeBebida.2e7677a75b8ff5ee8733ac788566684e.svg",
     "static/media/IconeLogout.svg": "/Recipe-App/static/media/IconeLogout.d60dd1a3860f60736646f09df4cff086.svg",
-    "main.06eb59bb.css.map": "/Recipe-App/static/css/main.06eb59bb.css.map",
-    "main.b94ef760.js.map": "/Recipe-App/static/js/main.b94ef760.js.map"
+    "main.c8956686.css.map": "/Recipe-App/static/css/main.c8956686.css.map",
+    "main.86424169.js.map": "/Recipe-App/static/js/main.86424169.js.map"
   },
   "entrypoints": [
-    "static/css/main.06eb59bb.css",
-    "static/js/main.b94ef760.js"
+    "static/css/main.c8956686.css",
+    "static/js/main.86424169.js"
   ]
 }
