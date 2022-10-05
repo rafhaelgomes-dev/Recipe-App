@@ -72,7 +72,9 @@ describe('testando Pagina doneRecipes', () => {
     });
     const buttonCopy = await screen.findByTestId('1-horizontal-share-btn');
     userEvent.click(buttonCopy);
-    expect(copy).toBeCalledTimes(1);
+    const buttonCopy2 = await screen.findByTestId('0-horizontal-share-btn');
+    userEvent.click(buttonCopy2);
+    expect(copy).toBeCalledTimes(2);
     await waitFor(() => expect(buttonCopy).toBeInTheDocument(), { timeout: 3000 });
   });
 });
