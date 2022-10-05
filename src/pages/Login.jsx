@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
+import Styles from '../styles/pages/Login.module.css';
 
 const NUMBER_SEVEN = 7;
 
@@ -52,26 +53,34 @@ function Login() {
   const checkDisable = loginInfo.validationButton === true;
 
   return (
-    <div>
+    <div className={ Styles.containerLogin }>
+      <p>Login</p>
       <input
         type="text"
-        placeholder="Digite seu email"
+        placeholder="Email"
         data-testid="email-input"
+        className={ Styles.inputsEmailSenha }
         name="email"
         value={ loginInfo.email }
         onChange={ handleChange }
       />
       <input
         type="password"
-        placeholder="Digite sua senha"
+        placeholder="Password"
         data-testid="password-input"
+        className={ Styles.inputsEmailSenha }
         name="password"
         onChange={ handleChange }
         value={ loginInfo.password }
       />
+      <section className={ Styles.containerSignup }>
+        <span>Ainda não tem uma conta? </span>
+        <Link to="/" className={ Styles.linkSignUp }>Cadastre-se</Link>
+      </section>
       <button
         type="button"
         data-testid="login-submit-btn"
+        className={ Styles.inputButtonLogin }
         onClick={ handleClick }
         disabled={ checkDisable }
       >

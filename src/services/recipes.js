@@ -14,16 +14,30 @@ async function getMealById(id) {
     .then((response) => response.json())
     .then((data) => (data.meals ? mapToRecipe(data.meals[0]) : null));
 }
+
 async function getDrinks(searchTerm = '') {
   const url = `${BASE_DRINK_API_URL}/search.php?s=${searchTerm}`;
+=======
+
+async function getDrinks(searchTerm = '') {
+  const url = `${BASE_DRINK_API_URL}/search.php?s=${searchTerm}`;
+
+
   return fetch(url)
     .then((response) => response.json())
     .then((data) => (data.drinks ? mapToRecipes(data.drinks, 'drink') : null));
 }
+
 async function getMeals(searchTerm = '') {
   const url = `${BASE_MEAL_API_URL}/search.php?s=${searchTerm}`;
+=======
+
+async function getMeals(searchTerm = '') {
+  const url = `${BASE_MEAL_API_URL}/search.php?s=${searchTerm}`;
+
   return fetch(url)
     .then((response) => response.json())
     .then((data) => (data.meals ? mapToRecipes(data.meals) : null));
 }
+
 export { getDrinkById, getDrinks, getMealById, getMeals };
