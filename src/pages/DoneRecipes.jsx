@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import copy from 'clipboard-copy';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import shareIcon from '../images/shareIcon.svg';
 
@@ -82,11 +83,17 @@ function DoneRecipes() {
       </button>
       {recipes.map((e, i) => (
         <div key={ i }>
-          <img
-            src={ e.image }
-            alt="imagem da receita"
-            data-testid={ `${i}-horizontal-image` }
-          />
+          <Link
+            to={ `/${e.type === 'drink' ? 'drinks'
+              : 'meals'}/${e.id}` }
+          >
+            <img
+              src={ e.image }
+              alt="imagem da receita"
+              data-testid={ `${i}-horizontal-image` }
+            />
+            <p data-testid={ `${i}-horizontal-name` }>{e.name}</p>
+          </Link>
           <p
             data-testid={ `${i}-horizontal-top-text` }
           >
@@ -94,7 +101,6 @@ function DoneRecipes() {
               ? `${e.nationality} - ${e.category}`
               : `${e.alcoholicOrNot} - ${e.category}` }
           </p>
-          <p data-testid={ `${i}-horizontal-name` }>{e.name}</p>
           <p data-testid={ `${i}-horizontal-done-date` }>{e.doneDate}</p>
           <button
             src={ shareIcon }
