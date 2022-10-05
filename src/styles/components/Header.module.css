@@ -1,13 +1,13 @@
 .containerHeader {
   align-items: center;
-  background-color: #FCDC36;
-  color: #41197F;
+  background-color: #fcdc36;
+  color: #41197f;
   display: flex;
   font-family: sans-serif;
   font-size: 14px;
   justify-content: space-around;
-  padding: 10px;
   margin-bottom: 20px;
+  padding: 10px;
 }
 
 .buttonHeaderPerfil {

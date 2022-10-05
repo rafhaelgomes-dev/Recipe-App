@@ -6,11 +6,11 @@
 
 .Content_footer {
   align-items: center;
+  background-color: #41197f;
   bottom: 0;
-  background-color: #41197F;
-  justify-content: space-around;
   display: flex;
   height: 50px;
+  justify-content: space-around;
   position: fixed;
   width: 100vw;
 }

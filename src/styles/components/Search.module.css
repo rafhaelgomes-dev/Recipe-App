@@ -1,16 +1,16 @@
-*{
+* {
   font-family: sans-serif;
 }
 
 .containerSearch {
   border: none;
+  background-color: #41197f;
   border-radius: 10px;
-  background-color: #41197F;
   color: white;
   display: flex;
   flex-direction: column;
-  text-align: center;
   padding: 10px;
+  text-align: center;
   width: 95%;
 }
 
@@ -24,8 +24,8 @@
 }
 
 .inputRadioButton {
+  accent-color: #fcc436;
   margin-right: 5px;
-  accent-color: #FCC436;
 }
 
 .LabelRadioButton {
@@ -41,8 +41,8 @@
 }
 
 .buttonBuscar {
+  background-color: #fcc436;
   border: none;
-  background-color: #FCC436;
   border-radius: 8px;
   color: white;
   height: 25px;
