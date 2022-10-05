@@ -1,0 +1,59 @@
+.containerCard {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  justify-content: center;
+}
+
+.cardDoneRecipes {
+  background-color: rgba(246, 246, 246, 0.798);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 4px 0 rgb(0 0 0 / 40%);
+  justify-content: space-around;
+  align-items: center;
+  width: 200px;
+  margin-bottom: 20px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.imgDoneRecipes {
+  width: 100%;
+}
+
+.buttonShare {
+  background: none;
+  border: none;
+  margin-top: 15px;
+}
+
+.link {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.link p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.containerDoneRecipes {
+  margin-bottom: 100px;
+}
+
+.buttonCategory {
+  background: none;
+  border: none;
+}
+
+.containerButtons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+  margin-top: -20px;
+  background-color: rgba(212, 212, 212, 0.413);
+  padding: 15px;
+}

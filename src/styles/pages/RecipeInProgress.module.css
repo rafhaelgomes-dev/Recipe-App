@@ -1,0 +1,91 @@
+@media only screen and ( max-width : 360px ) {
+
+  .imgRecipe {
+    width: 100%;
+  }
+
+  .containerName {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .containerButtonsFavorite {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+
+  .containerButtonsFavorite button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .containerIngredientes {
+    width: 95%;
+    border: 1px solid rgb(153, 153, 153);
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .containerIngredientes p {
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .containerIngredientes ul {
+    list-style: none;
+  }
+
+  .containerInstructions {
+    margin: auto;
+    margin-top: 20px;
+    width: 95%;
+    border: 1px solid rgb(153, 153, 153);
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .containerInstructions h1{
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .buttonFinish {
+    background-color: #FCC436;
+    cursor: pointer;
+    width: 95%;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .buttonFinishDisable {
+    background-color: #feeec5;
+    cursor: pointer;
+    width: 95%;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .containerButton {
+    text-align: center;
+  }
+
+  .RecipeInProgress {
+    margin-bottom: 100px;
+  }
+}

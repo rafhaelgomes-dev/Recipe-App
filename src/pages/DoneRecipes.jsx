@@ -3,6 +3,11 @@ import copy from 'clipboard-copy';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import shareIcon from '../images/shareIcon.svg';
+import Styles from '../styles/pages/DoneRecipes.module.css';
+import Footer from '../components/Footer';
+import AllFavorite from '../Assets/AllFavorite.svg';
+import foods from '../Assets/foods.svg';
+import drinks from '../Assets/drinks.svg';
 
 let messageClearTimeoutId;
 const ONE_SECOND = 1_000;
@@ -58,62 +63,73 @@ function DoneRecipes() {
   }
 
   return (
-    <div>
+    <div className={ Styles.containerDoneRecipes }>
       {message && <span>{message}</span>}
       <Header title={ TITLE_PAGE } />
-      <button
-        type="button"
-        data-testid="filter-by-all-btn"
-        onClick={ handleAll }
-      >
-        All
-      </button>
-      <button
-        type="button"
-        data-testid="filter-by-meal-btn"
-        onClick={ handleMeals }
-      >
-        Meals
-      </button>
-      <button
-        type="button"
-        data-testid="filter-by-drink-btn"
-        onClick={ handleDrinks }
-      >
-        Drinks
-      </button>
-      {recipes.map((e, i) => (
-        <div key={ i }>
-          <Link
-            to={ `/${e.type === 'drink' ? 'drinks'
-              : 'meals'}/${e.id}` }
-          >
-            <img
-              src={ e.thumbnailUrl }
-              alt="imagem da receita"
-              data-testid={ `${i}-horizontal-image` }
-            />
-            <p data-testid={ `${i}-horizontal-name` }>{e.name}</p>
-          </Link>
-          <p
-            data-testid={ `${i}-horizontal-top-text` }
-          >
-            { e.type === 'meal'
-              ? `${e.nationality} - ${e.categories}`
-              : `${e.alcoholic} - ${e.categories}` }
-          </p>
-          <p data-testid={ `${i}-horizontal-done-date` }>{e.doneDate}</p>
-          <button
-            src={ shareIcon }
-            type="button"
-            data-testid={ `${i}-horizontal-share-btn` }
-            onClick={ () => handleShareRecipe(e.type, e.id) }
-          >
-            <img src={ shareIcon } alt="Icone compartilhar" />
-          </button>
-          <p>{e.tags}</p>
-        </div>
-      ))}
+      <section className={ Styles.containerButtons }>
+        <button
+          type="button"
+          data-testid="filter-by-all-btn"
+          className={ Styles.buttonCategory }
+          onClick={ handleAll }
+        >
+          <img src={ AllFavorite } alt="Icone" />
+        </button>
+        <button
+          type="button"
+          data-testid="filter-by-meal-btn"
+          className={ Styles.buttonCategory }
+          onClick={ handleMeals }
+        >
+          <img src={ foods } alt="Icone" />
+        </button>
+        <button
+          type="button"
+          data-testid="filter-by-drink-btn"
+          className={ Styles.buttonCategory }
+          onClick={ handleDrinks }
+        >
+          <img src={ drinks } alt="Icone" />
+        </button>
+      </section>
+      <section className={ Styles.containerCard }>
+        {recipes.map((e, i) => (
+          <div key={ i } className={ Styles.cardDoneRecipes }>
+            <Link
+              to={ `/${e.type === 'drink' ? 'drinks'
+                : 'meals'}/${e.id}` }
+              className={ Styles.link }
+            >
+              <img
+                src={ e.thumbnailUrl }
+                className={ Styles.imgDoneRecipes }
+                alt="imagem da receita"
+                data-testid={ `${i}-horizontal-image` }
+              />
+              <p data-testid={ `${i}-horizontal-name` }>{e.title}</p>
+            </Link>
+            <p
+              data-testid={ `${i}-horizontal-top-text` }
+            >
+              { e.type === 'meal'
+                ? `${e.nationality} - ${e.categories}`
+                : `${e.alcoholic} - ${e.categories}` }
+            </p>
+            <p data-testid={ `${i}-horizontal-done-date` }>{e.doneDate}</p>
+            <p>{e.tags}</p>
+            <button
+              src={ shareIcon }
+              className={ Styles.buttonShare }
+              type="button"
+              data-testid={ `${i}-horizontal-share-btn` }
+              onClick={ () => handleShareRecipe(e.type, e.id) }
+            >
+              <img src={ shareIcon } alt="Icone compartilhar" />
+            </button>
+          </div>
+        ))}
+      </section>
+      <Footer />
     </div>
   );
 }

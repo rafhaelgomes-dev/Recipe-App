@@ -5,7 +5,11 @@ import LoadingCard from '../components/LoadingCard';
 import { getDrinkById, getMealById } from '../services/recipes';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
+import shareIcon from '../images/shareIcon.svg';
+import Footer from '../components/Footer';
 import Checkbox from '../components/Checkbox';
+import Styles from '../styles/pages/RecipeInProgress.module.css';
+import recipeInProgress from '../services/recipeInprogress';
 import {
   addFavoriteRecipe,
   getFavoriteRecipeById,
@@ -20,12 +24,10 @@ function RecipeInProgress() {
   const [isCheckd, setIsChecked] = useState(undefined);
   const [alert, setAlert] = useState('');
   const [finishedRecipe, setFinishedRecipe] = useState(true);
-
   const { pathname } = useLocation();
   const { params } = useRouteMatch();
   const history = useHistory();
   const { id } = params;
-
   const [isFavorite, setFavorite] = useState(() => !!getFavoriteRecipeById(id));
   const isMeal = /^\/meals\/.*/i.test(pathname);
   const isDrink = /^\/drinks\/.*/i.test(pathname);
@@ -52,19 +54,7 @@ function RecipeInProgress() {
       setIsChecked(arrayBool);
     }
     if (isMeal) {
-      const storage = JSON.parse(localStorage.getItem('inProgressRecipes'));
-      if (!storage.comidas[recipe.id]) {
-        setIsChecked(arrayBool);
-        return;
-      }
-      if (storage.comidas[recipe.id].length === 0) {
-        setIsChecked(arrayBool);
-        return;
-      }
-      storage.comidas[recipe.id].forEach((e) => {
-        arrayBool[e] = !arrayBool[e];
-      });
-      setIsChecked(arrayBool);
+      recipeInProgress(recipe, arrayBool, setIsChecked);
     }
   };
 
@@ -190,51 +180,69 @@ function RecipeInProgress() {
 
   const { title, categories, thumbnailUrl, instructions, ingredients } = recipe;
   return (
-    <div>
-      <img src={ thumbnailUrl } alt="" data-testid="recipe-photo" />
-      <h1 data-testid="recipe-title">
-        {title}
+    <div className={ Styles.RecipeInProgress }>
+      <img
+        src={ thumbnailUrl }
+        alt="imagem receita"
+        className={ Styles.imgRecipe }
+        data-testid="recipe-photo"
+      />
+      <section className={ Styles.containerName }>
+        <h1 data-testid="recipe-title">
+          {title}
 
-      </h1>
-      <h3 data-testid="recipe-category">
-        {categories}
+        </h1>
+        <h3 data-testid="recipe-category">
+          {categories}
+        </h3>
+      </section>
+      <section className={ Styles.containerButtonsFavorite }>
+        <button type="button" data-testid="share-btn" onClick={ handleClickShare }>
+          <img src={ shareIcon } alt="Icone compartilhar" />
+        </button>
 
-      </h3>
-      <button type="button" data-testid="share-btn" onClick={ handleClickShare }>
-        Compartilhar
+        <button
+          src={ isFavorite ? blackHeartIcon : whiteHeartIcon }
+          type="button"
+          data-testid="favorite-btn"
+          onClick={ handleClickFavorites }
+        >
+          <img
+            src={ isFavorite ? blackHeartIcon : whiteHeartIcon }
+            alt="favorite button"
+          />
+        </button>
+      </section>
+      <section className={ Styles.containerIngredientes }>
+        <p>Ingredientes</p>
+        <ul>
+          <Checkbox
+            ingredients={ ingredients }
+            handleClick={ handleClick }
+            isCheckd={ isCheckd }
+          />
+        </ul>
+      </section>
+      <section className={ Styles.containerInstructions }>
+        <h1>Instruções</h1>
+        <p data-testid="instructions">
+          {instructions}
 
-      </button>
-
-      <button
-        src={ isFavorite ? blackHeartIcon : whiteHeartIcon }
-        type="button"
-        data-testid="favorite-btn"
-        onClick={ handleClickFavorites }
-      >
-        <img src={ isFavorite ? blackHeartIcon : whiteHeartIcon } alt="favorite button" />
-
-      </button>
-
-      <p data-testid="instructions">
-        {instructions}
-
-      </p>
-      <ul>
-        <Checkbox
-          ingredients={ ingredients }
-          handleClick={ handleClick }
-          isCheckd={ isCheckd }
-        />
-      </ul>
-      <button
-        type="button"
-        data-testid="finish-recipe-btn"
-        disabled={ finishedRecipe }
-        onClick={ handleFinishedRecipe }
-      >
-        Finalizar Receita
-      </button>
+        </p>
+      </section>
+      <section className={ Styles.containerButton }>
+        <button
+          type="button"
+          data-testid="finish-recipe-btn"
+          className={ finishedRecipe ? Styles.buttonFinishDisable : Styles.buttonFinish }
+          disabled={ finishedRecipe }
+          onClick={ handleFinishedRecipe }
+        >
+          Finalizar Receita
+        </button>
+      </section>
       { alert && <p>{alert}</p> }
+      <Footer />
     </div>
   );
 }
