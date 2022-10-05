@@ -15,9 +15,9 @@
 }
 
 @keyframes is-rotating {
-  to
+to
 
-   {
+    {
     transform: rotate(1turn);
-  }
+    }
 }
