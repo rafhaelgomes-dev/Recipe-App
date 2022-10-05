@@ -6,6 +6,7 @@ import shareIcon from '../images/shareIcon.svg';
 
 let messageClearTimeoutId;
 const ONE_SECOND = 1_000;
+
 function DoneRecipes() {
   const TITLE_PAGE = 'Done Recipes';
   const [recipes, setRecipes] = useState([]);
@@ -88,7 +89,7 @@ function DoneRecipes() {
               : 'meals'}/${e.id}` }
           >
             <img
-              src={ e.image }
+              src={ e.thumbnailUrl }
               alt="imagem da receita"
               data-testid={ `${i}-horizontal-image` }
             />
@@ -98,8 +99,8 @@ function DoneRecipes() {
             data-testid={ `${i}-horizontal-top-text` }
           >
             { e.type === 'meal'
-              ? `${e.nationality} - ${e.category}`
-              : `${e.alcoholicOrNot} - ${e.category}` }
+              ? `${e.nationality} - ${e.categories}`
+              : `${e.alcoholic} - ${e.categories}` }
           </p>
           <p data-testid={ `${i}-horizontal-done-date` }>{e.doneDate}</p>
           <button
@@ -110,9 +111,7 @@ function DoneRecipes() {
           >
             <img src={ shareIcon } alt="Icone compartilhar" />
           </button>
-          {e.tags.map((e1) => (
-            <p key={ e1 } data-testid={ `${i}-${e1}-horizontal-tag` }>{e1}</p>
-          ))}
+          <p>{e.tags}</p>
         </div>
       ))}
     </div>
