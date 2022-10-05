@@ -3,8 +3,8 @@
 }
 
 .containerSearch {
-  border: none;
   background-color: #41197f;
+  border: none;
   border-radius: 10px;
   color: white;
   display: flex;

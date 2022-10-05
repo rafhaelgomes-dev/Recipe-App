@@ -37,9 +37,9 @@
   }
 
   .link {
-    text-decoration: none;
-    cursor: pointer;
     color: black;
+    cursor: pointer;
+    text-decoration: none;
   }
 
   .link p {
@@ -47,13 +47,13 @@
   }
 
   .img {
-    width: 250px;
     border-radius: 8px 8px 0 0;
+    width: 250px;
   }
 
   .shareFavoriteButton {
-    text-align: center;
     margin-top: 10px;
+    text-align: center;
   }
 
   .shareFavoriteButton button {
