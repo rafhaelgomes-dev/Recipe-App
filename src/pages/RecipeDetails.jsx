@@ -72,7 +72,10 @@ function RecipeDetails() {
   }
 
   function handleFavoriteRecipe() {
-    const storageFavoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
+    let storageFavoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
+    if (storageFavoriteRecipes === null) {
+      storageFavoriteRecipes = [];
+    }
     const verifyId = storageFavoriteRecipes.some((e) => e.id === recipe.id);
     if (verifyId) {
       const filterRemoveId = storageFavoriteRecipes.filter((e) => e.id !== recipe.id);

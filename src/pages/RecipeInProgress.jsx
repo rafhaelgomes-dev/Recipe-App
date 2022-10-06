@@ -128,7 +128,10 @@ function RecipeInProgress() {
   };
 
   const handleClickFavorites = () => {
-    const storageFavoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
+    let storageFavoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
+    if (storageFavoriteRecipes === null) {
+      storageFavoriteRecipes = [];
+    }
     const verifyId = storageFavoriteRecipes.some((e) => e.id === recipe.id);
     if (verifyId) {
       const filterRemoveId = storageFavoriteRecipes.filter((e) => e.id !== recipe.id);
@@ -190,7 +193,6 @@ function RecipeInProgress() {
       <section className={ Styles.containerName }>
         <h1 data-testid="recipe-title">
           {title}
-
         </h1>
         <h3 data-testid="recipe-category">
           {categories}
@@ -200,7 +202,6 @@ function RecipeInProgress() {
         <button type="button" data-testid="share-btn" onClick={ handleClickShare }>
           <img src={ shareIcon } alt="Icone compartilhar" />
         </button>
-
         <button
           src={ isFavorite ? blackHeartIcon : whiteHeartIcon }
           type="button"
@@ -227,7 +228,6 @@ function RecipeInProgress() {
         <h1>Instruções</h1>
         <p data-testid="instructions">
           {instructions}
-
         </p>
       </section>
       <section className={ Styles.containerButton }>
