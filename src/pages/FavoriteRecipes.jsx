@@ -145,6 +145,7 @@ function FavoriteRecipes() {
               <button
                 type="button"
                 data-testid={ `${index}-horizontal-favorite-btn` }
+                className={ Styles.buttonsShareFavorite }
                 src={ blackHeartIcon }
                 onClick={ () => { removeFavorites(recipe.id); } }
               >
@@ -156,6 +157,7 @@ function FavoriteRecipes() {
               <button
                 type="button"
                 data-testid={ `${index}-horizontal-share-btn` }
+                className={ Styles.buttonsShareFavorite }
                 onClick={ () => { copyLinkToShare(recipe.id, recipe.type); } }
                 src={ shareIcon }
               >

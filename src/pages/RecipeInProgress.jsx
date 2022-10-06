@@ -151,7 +151,6 @@ function RecipeInProgress() {
         comidas: [],
       }));
       controlCheckbox();
-      localStorage.setItem('favoriteRecipes', JSON.stringify([]));
     } else {
       controlCheckbox();
     }

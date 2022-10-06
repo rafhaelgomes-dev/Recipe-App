@@ -11,6 +11,11 @@
     margin-right: 20px;
   }
 
+  .buttonsShareFavorite {
+    background: none;
+    border: none;
+  }
+
   .buttonsFilter2 {
     background: none;
     border: none;
